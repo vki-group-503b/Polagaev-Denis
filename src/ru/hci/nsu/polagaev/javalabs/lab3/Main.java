@@ -1,10 +1,9 @@
 package ru.hci.nsu.polagaev.javalabs.lab3;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         {
             while (true) {
                 // Для проверки ( 8 + 2 * 5 ) / ( 1 + 3 * 2 - 4 )
