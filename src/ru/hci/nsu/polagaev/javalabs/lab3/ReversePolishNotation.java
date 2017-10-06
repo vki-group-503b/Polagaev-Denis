@@ -12,7 +12,7 @@ class ReversePolishNotation {
         System.out.println("Выражение в постфиксной : " + infix.convert(str));
     }
 
-    private String convert(String expression) {
+    private static String convert(String expression) {
         Stack<Character> s = new Stack();
         String result = new String();
         for (int i = 0; i < expression.length(); i++) {
@@ -25,6 +25,7 @@ class ReversePolishNotation {
                 while (!s.empty() && s.peek() != '(') {
                     result += s.pop();
                 }
+                s.pop();
             } else if (temp == '+' || temp == '-') {
                 while (!s.empty() && s.peek() != '(') {
                     result += s.pop();
@@ -40,7 +41,6 @@ class ReversePolishNotation {
         while (!s.empty()) {
             result += s.pop();
         }
-        //return result.replace("(", ""); //Если без скобок
-        return result; // Со скобками
+        return result;
     }
 }
