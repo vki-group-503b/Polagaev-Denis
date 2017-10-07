@@ -1,3 +1,5 @@
+package ru.hci.nsu.polagaev.javalabs.lab2;
+
 import java.util.Arrays;
 
 class Array {
