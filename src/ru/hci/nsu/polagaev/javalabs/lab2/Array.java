@@ -1,65 +1,42 @@
-package ru.hci.nsu.polagaev.javalabs.lab2;
-
-import java.util.Scanner;
 import java.util.Arrays;
 
-public class Array {
-    public static void main(String[] args) {
-        System.out.println("Введите кол-во элементов в массиве ");
-        int nums[] = scanner();
-        System.out.println("Минимальный элемент : " + min(nums));
-        System.out.println("Максимальный элемент : " + max(nums));
-        System.out.println("Среднее значение " + midle(nums));
-        System.out.println("Медиана массива " + median(nums));
-        System.out.println("Среднее геометрическое " + geometric(nums));
+class Array {
+    void min(int a[]) {
+        System.out.println("Минимальное число: " + a[0]);
     }
 
-    private static int[] scanner() {
-        Scanner in = new Scanner(System.in);
-        int kol = in.nextInt();
-        int nums[] = new int[kol];
-        System.out.println("Введите элементы массива ");
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println("Nums : " + i);
-            nums[i] = in.nextInt();
+    void max(int a[]) {
+        System.out.println("Максимальное число: " + a[a.length - 1]);
+    }
+
+    void avg(int a[]) {
+        float avg = 0;
+        for (int i : a) {
+            avg = avg + i;
         }
-        return nums;
+        avg = avg / a.length;
+        System.out.println("Среднее число: " + avg);
     }
 
-    private static int min(int nums[]) {
-        int min = nums[0];
-        for (int i = 0; i < nums.length; i++)
-            if (nums[i] < min) min = nums[i];
-        return min;
-    }
-
-    private static int max(int nums[]) {
-        int max = nums[0];
-        for (int i = 0; i < nums.length; i++)
-            if (max < nums[i]) max = nums[i];
-        return max;
-    }
-
-    private static float midle(int nums[]) {
-        float result = 0;
-        for (int i = 0; i < nums.length; i++) {
-            result += nums[i];
+    void median(int[] a) {
+        Arrays.sort(a);
+        float median;
+        if (a.length % 2 == 0) {
+            median = (float) ((a[a.length / 2]) + a[a.length / 2 - 1]);
+        } else {
+            median = a[a.length / 2];
         }
-        return result / nums.length;
+        System.out.println("Медиана:" + median);
     }
 
-    private static float median(int nums[]) {
-        Arrays.sort(nums);
-        if (nums.length % 2 == 0) {
-            return ((nums[nums.length / 2] + nums[nums.length / 2 - 1]) / 2);
-        } else return nums[nums.length / 2];
-    }
-
-    private static double geometric(int nums[]) {
-        double result = 1;
-        for (int i = 0; i < nums.length; i++) {
-            result *= nums[i];
+    void geometric(int[] a) {
+        Arrays.sort(a);
+        float geometric;
+        int comp = 1;
+        for (int i : a) {
+            comp = comp * i;
         }
-        return Math.exp(Math.log(result) / nums.length);
+        geometric = (float) Math.exp(Math.log(comp) / a.length);
+        System.out.println("Среднее геометрическое: " + geometric);
     }
 }
