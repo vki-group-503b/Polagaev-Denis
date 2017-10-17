@@ -1,44 +1,56 @@
 package ru.hci.nsu.polagaev.javalabs.lab2;
-
+import java.util.Scanner;
 import java.util.Arrays;
 
 class Array {
-    void min(int a[]) {
-        System.out.println("Минимальное число: " + a[0]);
+    int[] array;
+
+     public Array() {
+        Scanner in = new Scanner(System.in);
+        array = new int[in.nextInt()];
+        for (int i = 0; i< array.length; i++){
+        System.out.println("i: "+(i+1)+": ");
+        array[i]=in.nextInt();
+        }
     }
 
-    void max(int a[]) {
-        System.out.println("Максимальное число: " + a[a.length - 1]);
+    void min() {
+
+        System.out.println("Минимальное число: " + array[0]);
     }
 
-    void avg(int a[]) {
+    void max() {
+        System.out.println("Максимальное число: " + array[array.length - 1]);
+    }
+
+    void avg() {
         float avg = 0;
-        for (int i : a) {
+        for (float i : array) {
             avg = avg + i;
         }
-        avg = avg / a.length;
-        System.out.println("Среднее число: " + avg);
+        avg = avg / array.length;
+        System.out.println("Среднее: " + avg);
     }
 
-    void median(int[] a) {
-        Arrays.sort(a);
+    void median() {
+        Arrays.sort(array);
         float median;
-        if (a.length % 2 == 0) {
-            median = (float) ((a[a.length / 2]) + a[a.length / 2 - 1]);
+        if (array.length % 2 == 0) {
+            median = ((array[array.length / 2]) + array[array.length / 2 - 1]);
         } else {
-            median = a[a.length / 2];
+            median = array[array.length / 2];
         }
         System.out.println("Медиана:" + median);
     }
 
-    void geometric(int[] a) {
-        Arrays.sort(a);
+    void geometric() {
+        Arrays.sort(array);
         float geometric;
-        int comp = 1;
-        for (int i : a) {
+        float comp = 1;
+        for (float i : array) {
             comp = comp * i;
         }
-        geometric = (float) Math.exp(Math.log(comp) / a.length);
+        geometric = (float) Math.exp(Math.log(comp) / array.length);
         System.out.println("Среднее геометрическое: " + geometric);
     }
 }
