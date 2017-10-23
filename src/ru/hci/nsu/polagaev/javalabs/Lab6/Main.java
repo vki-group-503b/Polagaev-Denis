@@ -12,7 +12,7 @@ public class Main {
                 Point2d();
             } else if (s.equals("2")) {
                 //3хмерной нет пока
-            } else if (!s.equals("n")) {
+            } else{
                 break;
             }
         }
